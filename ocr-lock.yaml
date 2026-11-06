@@ -1,0 +1,36 @@
+# OCR 引擎版本锁定清单（2026-10-20 建）
+# 两台机器现装的确切版本。升级一律走 remote/README.md「升级流程」：候选环境并排安装 → remote/regress.py 回归门 → 通过才切换并改本文件。
+# 检查有无新版本：python remote/ocr_upgrade_check.py（只读，不安装）。
+
+mineru:                       # cc-convert 主引擎；Mac .venv 与 Windows .venv（各自独立，不经 Drive 同步）必须同版本
+  python_packages:
+    mineru: 4.0.7             # 4.0.10 曾因 flash 档中文换行插空格、英文悬挂编号错位回滚（README 2026-10-08）
+    docvortex: 0.4.25
+    mineru-llama-cpp: 0.1.2   # Windows 只有 Vulkan 版（PyPI 无 CUDA 轮子）
+    mineru-vl-utils: 2.0.5
+  models:
+    vlm_gguf:
+      repo: jinzhenj/MinerU2.5-Pro-2605-1.2B-GGUF
+      revision: 9185688a0495e1577d521a757c7c0b62dd38ca48
+      files:
+        MinerU2.5-Pro-2605-1.2B-Q8_0.gguf: 3f3523429c880d675c0330cb3de78240452bc40a961d037e24f91ab8488f03e7
+        mmproj-MinerU2.5-Pro-2605-1.2B-Q8_0.gguf: b6c08ab50352677f7396af45ee60682f353f55488e26911d8154bfc37514d3f8
+    upstream_reference: opendatalab/MinerU2.5-Pro-2605-1.2B   # 原始权重仓库，HF 上 2026-10-08 有更新，GGUF 是否跟进以检查脚本为准
+
+glm_second_opinion:           # Windows WSL2（/opt/ocr），仅 --review --second-opinion glm 使用
+  python_packages:
+    vllm: 0.32.0              # /opt/ocr/vllm；transformers 5.19.0、torch 2.13.0
+    glmocr: 0.1.5             # /opt/ocr/glm；transformers 5.20.2、torch 2.14.1
+  models:
+    glm_ocr:
+      repo: zai-org/GLM-OCR             # 魔搭镜像 ZhipuAI/GLM-OCR
+      hf_sha_at_lock: 2e85a62840        # HF 2026-09-11
+      model.safetensors: a16eb0de98d19929   # sha256 前 16 位
+    layout:
+      repo: PaddlePaddle/PP-DocLayoutV3_safetensors
+      hf_sha_at_lock: e4f489dc53        # HF 2026-09-30
+      model.safetensors: 5ea422c6cc5fe759
+
+regression:
+  bench: ~/.local/share/cc-convert-bench/v1   # 36 页 + 答案（含案卷内容，只在本机，不进仓库）
+  baselines: remote/bench-baseline.json        # 纯数字

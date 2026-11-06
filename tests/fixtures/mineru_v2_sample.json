@@ -1,0 +1,5 @@
+[
+  [{"type": "title", "content": {"title_content": [{"type": "text", "content": "判决书"}], "level": 1}, "bbox": [0,0,1,1]},
+   {"type": "text", "content": "第一页正文。", "bbox": [0,1,1,2]}],
+  [{"type": "text", "content": "第二页正文。", "bbox": [0,0,1,1]}]
+]

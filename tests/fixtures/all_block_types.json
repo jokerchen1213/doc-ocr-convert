@@ -1,0 +1,13 @@
+[
+  {"type": "text", "text": "普通正文段落", "bbox": [0,0,1,1], "page_idx": 0},
+  {"type": "title", "text": "章节标题", "text_level": 1, "bbox": [0,1,1,2], "page_idx": 0},
+  {"type": "table", "img_path": "images/t.jpg", "table_caption": ["表X 资产"], "table_footnote": ["脚注Y 单位元"], "table_body": "<table><tr><td>甲</td><td>乙</td></tr></table>", "bbox": [0,2,1,3], "page_idx": 0},
+  {"type": "list", "sub_type": "text", "list_items": ["条目一", "条目二"], "bbox": [0,3,1,4], "page_idx": 0},
+  {"type": "equation", "text": "E = mc^2", "text_format": "latex", "bbox": [0,4,1,5], "page_idx": 0},
+  {"type": "image", "img_path": "images/p.jpg", "image_caption": [], "image_footnote": [], "bbox": [0,5,1,6], "page_idx": 0},
+  {"type": "figure", "img_path": "images/fig.jpg", "bbox": [0,6,1,7], "page_idx": 0},
+  {"type": "chart", "img_path": "images/c.jpg", "content": "", "chart_caption": [], "chart_footnote": [], "bbox": [0,7,1,8], "page_idx": 0},
+  {"type": "header", "text": "页眉文字", "bbox": [0,8,1,9], "page_idx": 0},
+  {"type": "footer", "text": "页脚文字", "bbox": [0,9,1,10], "page_idx": 0},
+  {"type": "page_number", "text": "页码7", "bbox": [0,10,1,11], "page_idx": 0}
+]

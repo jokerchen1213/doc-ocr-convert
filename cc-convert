@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+HERE="$(cd "$(dirname "$0")" && pwd)"
+exec "$HERE/.venv/bin/python" "$HERE/cc_convert.py" "$@"

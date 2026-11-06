@@ -1,0 +1,6 @@
+[
+  {"type": "text", "text": "判决书", "text_level": 1, "bbox": [0,0,1,1], "page_idx": 0},
+  {"type": "text", "text": "第一页正文。", "bbox": [0,1,1,2], "page_idx": 0},
+  {"type": "image", "img_path": "images/a.jpg", "bbox": [0,2,1,3], "page_idx": 0},
+  {"type": "text", "text": "第二页正文。", "bbox": [0,0,1,1], "page_idx": 1}
+]

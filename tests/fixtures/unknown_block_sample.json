@@ -1,0 +1,4 @@
+[
+  {"type": "text", "text": "正常内容", "bbox": [0,0,1,1], "page_idx": 0},
+  {"type": "weird_new_type", "mystery": "无法提取的神秘内容", "bbox": [0,1,1,2], "page_idx": 0}
+]
